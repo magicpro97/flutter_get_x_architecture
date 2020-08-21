@@ -8,8 +8,8 @@ import 'package:flutter_get_x_architecture/data/sources/cache/cached_box.dart';
 import 'package:flutter_get_x_architecture/data/sources/remote/user_service.dart';
 import 'package:flutter_get_x_architecture/generated/codegen_loader.g.dart';
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:logger/logger.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 void main() async {
@@ -22,7 +22,8 @@ void main() async {
       supportedLocales: [
         Locale('en'),
       ],
-      path: 'assets/translations', // <-- change patch to your
+      path: 'assets/translations',
+      // <-- change patch to your
       fallbackLocale: Locale('en'),
       child: App(),
       assetLoader: CodegenLoader(),
@@ -31,11 +32,14 @@ void main() async {
 }
 
 Future<void> _setUp() async {
-  await Hive.initFlutter();
-  await Get.putAsync<Box<String>>(() => Hive.openBox('cached_box'));
+  await GetStorage.init();
+  Get.put(GetStorage());
+
   Get.put<Dio>(
     Dio()..interceptors.add(PrettyDioLogger()),
   );
+
+  Get.lazyPut<Logger>(() => Logger());
 
   Get.put<UserService>(UserServiceImpl(Get.find()));
 

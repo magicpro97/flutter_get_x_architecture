@@ -39,9 +39,6 @@ dependencies:
   flutter_statusbarcolor: ^0.2.3
   flutter_statusbar_text_color: ^0.1.2
 
-  # Google Map
-  flutter_google_maps: ^4.0.0
-
   # Rx
   rxdart: ^0.24.1
 
@@ -57,8 +54,7 @@ dependencies:
   data_connection_checker: ^0.3.4
 
   # Cached
-  hive: ^1.4.3
-  hive_flutter: ^0.3.1
+  get_storage:
 
   # Launch URL
   url_launcher: ^5.5.0
@@ -69,13 +65,8 @@ dependencies:
   # Mask text for text field
   mask_text_input_formatter: ^1.0.7
 
-  email_validator: ^1.0.5
-
   # Micro framework for flutter (DI, State, Route)
   get: ^3.4.6
-
-  # Http generator
-  retrofit:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -87,8 +78,6 @@ dev_dependencies:
   build_runner:
   freezed:
   json_serializable:
-  hive_generator:
-  retrofit_generator:
 
 dependency_overrides:
   analyzer: '0.39.14'

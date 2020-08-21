@@ -1,3 +1,1 @@
-abstract class BaseCachedDataSource {
-  Future<void> close();
-}
+abstract class BaseCachedDataSource {}
