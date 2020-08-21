@@ -6,6 +6,7 @@ import 'package:flutter_get_x_architecture/data/repositories/token_repository.da
 import 'package:flutter_get_x_architecture/data/repositories/user_repository.dart';
 import 'package:flutter_get_x_architecture/data/sources/cache/cached_box.dart';
 import 'package:flutter_get_x_architecture/data/sources/remote/user_service.dart';
+import 'package:flutter_get_x_architecture/generated/codegen_loader.g.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -24,6 +25,7 @@ void main() async {
       path: 'assets/translations', // <-- change patch to your
       fallbackLocale: Locale('en'),
       child: App(),
+      assetLoader: CodegenLoader(),
     ),
   );
 }
