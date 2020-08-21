@@ -253,37 +253,16 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.10.11"
-  flinq:
-    dependency: transitive
-    description:
-      name: flinq
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.1.1"
   flutter:
     dependency: "direct main"
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_google_maps:
-    dependency: "direct main"
-    description:
-      name: flutter_google_maps
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "4.0.0"
   flutter_localizations:
     dependency: "direct main"
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_plugin_android_lifecycle:
-    dependency: transitive
-    description:
-      name: flutter_plugin_android_lifecycle
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.8"
   flutter_spinkit:
     dependency: "direct main"
     description:
@@ -350,41 +329,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
-  google_directions_api:
-    dependency: transitive
-    description:
-      name: google_directions_api
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.5.0"
-  google_maps:
-    dependency: transitive
-    description:
-      name: google_maps
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.4.4"
-  google_maps_flutter:
-    dependency: transitive
-    description:
-      name: google_maps_flutter
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.5.30"
-  google_maps_flutter_platform_interface:
-    dependency: transitive
-    description:
-      name: google_maps_flutter_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.4"
-  google_polyline_algorithm:
-    dependency: transitive
-    description:
-      name: google_polyline_algorithm
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.0"
   graphs:
     dependency: transitive
     description:
@@ -399,13 +343,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.14.0+3"
-  http:
-    dependency: transitive
-    description:
-      name: http
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.12.2"
   http_multi_server:
     dependency: transitive
     description:
@@ -441,13 +378,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.2"
-  js_wrapping:
-    dependency: transitive
-    description:
-      name: js_wrapping
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.5.0"
   json_annotation:
     dependency: transitive
     description:
@@ -796,13 +726,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.2+1"
-  uuid:
-    dependency: transitive
-    description:
-      name: uuid
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.2.0"
   vector_math:
     dependency: transitive
     description:
@@ -840,4 +763,4 @@ packages:
     version: "2.2.1"
 sdks:
   dart: ">=2.9.0 <3.0.0"
-  flutter: ">=1.16.3 <2.0.0"
+  flutter: ">=1.12.13+hotfix.5 <2.0.0"
