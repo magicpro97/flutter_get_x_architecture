@@ -12,11 +12,18 @@ class LoginScreen extends GetWidget<LoginController> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Email',
+                Obx(
+                  () => TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Email',
+                      errorText: controller.email.value != ''
+                          ? GetUtils.isEmail(controller.email.value)
+                              ? null
+                              : 'Invalid Email'
+                          : null,
+                    ),
+                    onChanged: (value) => controller.email.value = value,
                   ),
-                  onChanged: (value) => controller.email.value = value,
                 ),
                 TextField(
                   decoration: InputDecoration(

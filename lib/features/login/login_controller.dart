@@ -9,9 +9,9 @@ class LoginController extends BaseController {
 
   final TokenRepository _tokenRepository;
 
-  var email = ''.obs;
+  final email = ''.obs;
 
-  var password = ''.obs;
+  final password = ''.obs;
 
   LoginController(
     this._userRepository,
