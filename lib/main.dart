@@ -32,20 +32,44 @@ void main() async {
 }
 
 Future<void> _setUp() async {
-  await GetStorage.init();
-  Get.put(GetStorage());
-
-  Get.put<Dio>(
-    Dio()..interceptors.add(PrettyDioLogger()),
+  await Get.putAsync(
+    () async {
+      await GetStorage.init();
+      return GetStorage();
+    },
+    permanent: true,
   );
 
-  Get.lazyPut<Logger>(() => Logger());
+  Get.lazyPut<Dio>(
+    () => Dio()..interceptors.add(PrettyDioLogger()),
+    fenix: true,
+  );
 
-  Get.put<UserService>(UserServiceImpl(Get.find()));
+  Get.lazyPut<Logger>(
+    () => Logger(),
+    fenix: true,
+  );
 
-  Get.put<CachedBox>(CachedBoxImpl(Get.find()));
+  Get.lazyPut<UserService>(
+    () => UserServiceImpl(Get.find()),
+    fenix: true,
+  );
 
-  Get.put<UserRepository>(UserRepositoryImpl(Get.find(), Get.find()));
+  Get.lazyPut<CachedBox>(
+    () => CachedBoxImpl(Get.find()),
+    fenix: true,
+  );
 
-  Get.put<TokenRepository>(TokenRepositoryImpl(Get.find()));
+  Get.lazyPut<UserRepository>(
+    () => UserRepositoryImpl(
+      Get.find(),
+      Get.find(),
+    ),
+    fenix: true,
+  );
+
+  Get.lazyPut<TokenRepository>(
+    () => TokenRepositoryImpl(Get.find()),
+    fenix: true,
+  );
 }
