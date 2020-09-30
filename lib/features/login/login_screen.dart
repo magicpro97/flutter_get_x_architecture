@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_get_x_architecture/features/login/login_controller.dart';
+import 'package:flutter_get_x_architecture/generated/locales.g.dart';
 import 'package:get/get.dart';
 
 class LoginScreen extends GetWidget<LoginController> {
@@ -15,7 +16,7 @@ class LoginScreen extends GetWidget<LoginController> {
                 Obx(
                   () => TextField(
                     decoration: InputDecoration(
-                      hintText: 'Email',
+                      hintText: LocaleKeys.txt_email.tr,
                       errorText: controller.email.value != ''
                           ? GetUtils.isEmail(controller.email.value)
                               ? null
@@ -27,7 +28,7 @@ class LoginScreen extends GetWidget<LoginController> {
                 ),
                 TextField(
                   decoration: InputDecoration(
-                    hintText: 'Password',
+                    hintText: LocaleKeys.txt_password.tr,
                   ),
                   obscureText: true,
                   onChanged: (value) => controller.password.value = value,

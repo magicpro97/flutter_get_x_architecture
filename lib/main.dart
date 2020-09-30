@@ -1,12 +1,11 @@
 import 'package:dio/dio.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_get_x_architecture/app.dart';
+import 'package:flutter_get_x_architecture/common/config/api.dart';
 import 'package:flutter_get_x_architecture/data/repositories/token_repository.dart';
 import 'package:flutter_get_x_architecture/data/repositories/user_repository.dart';
 import 'package:flutter_get_x_architecture/data/sources/cache/cached_box.dart';
 import 'package:flutter_get_x_architecture/data/sources/remote/user_service.dart';
-import 'package:flutter_get_x_architecture/generated/codegen_loader.g.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:logger/logger.dart';
@@ -18,16 +17,7 @@ void main() async {
   await _setUp();
 
   runApp(
-    EasyLocalization(
-      supportedLocales: [
-        Locale('en'),
-      ],
-      path: 'assets/translations',
-      // <-- change patch to your
-      fallbackLocale: Locale('en'),
-      child: App(),
-      assetLoader: CodegenLoader(),
-    ),
+    App(),
   );
 }
 
@@ -50,8 +40,11 @@ Future<void> _setUp() async {
     fenix: true,
   );
 
-  Get.lazyPut<UserService>(
-    () => UserServiceImpl(Get.find()),
+  Get.lazyPut(
+    () => UserService(
+      Get.find(),
+      baseUrl: UserApi.baseUrl,
+    ),
     fenix: true,
   );
 

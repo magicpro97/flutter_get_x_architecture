@@ -1,0 +1,11 @@
+{
+  "app_name": "GetX demo",
+  "screen": {
+    "splash": "Splash Screen",
+    "home": "Home Screen"
+  },
+  "txt": {
+    "email": "Email",
+    "password": "Password"
+  }
+}

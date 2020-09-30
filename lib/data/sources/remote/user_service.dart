@@ -1,23 +1,17 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_get_x_architecture/common/config/api.dart';
 import 'package:flutter_get_x_architecture/data/models/responses/login_response.dart';
-import 'package:flutter_get_x_architecture/data/sources/remote/base_remote_datasource.dart';
+import 'package:retrofit/http.dart';
 
-abstract class UserService extends BaseRemoteDataSource {
-  UserService(Dio dio) : super(dio);
+part 'user_service.g.dart';
 
-  Future<LoginResponse> login({String userLogin, String password});
-}
+@RestApi()
+abstract class UserService {
+  factory UserService(Dio dio, {String baseUrl}) = _UserService;
 
-class UserServiceImpl extends UserService {
-  UserServiceImpl(Dio dio) : super(dio);
-
-  @override
-  Future<LoginResponse> login({String userLogin, String password}) => dio.post(
-        UserApi.systemLogin,
-        data: {
-          'userLogin': userLogin,
-          'password': password,
-        },
-      ).then((value) => LoginResponse.fromJson(value.data));
+  @POST(UserApi.SYSTEM_LOGIN)
+  Future<LoginResponse> login({
+    @Field() String userLogin,
+    @Field() String password,
+  });
 }

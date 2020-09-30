@@ -19,5 +19,5 @@ class UserApi {
 
   static final register = '$baseUrl/register';
 
-  static final systemLogin = '${Api.cmsUrl}/login/userReg';
+  static const SYSTEM_LOGIN = '/login/userReg';
 }

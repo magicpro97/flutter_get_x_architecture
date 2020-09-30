@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_get_x_architecture/features/splash/splash_controller.dart';
-import 'package:get/state_manager.dart';
+import 'package:flutter_get_x_architecture/generated/locales.g.dart';
+import 'package:get/get.dart';
 
 class SplashScreen extends GetWidget<SplashController> {
   @override
@@ -10,7 +11,7 @@ class SplashScreen extends GetWidget<SplashController> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Splash Screen'),
+            Text(LocaleKeys.screen_splash.tr),
             controller.isLoading.value
                 ? CircularProgressIndicator()
                 : Container(),
