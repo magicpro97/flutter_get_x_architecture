@@ -19,24 +19,23 @@ class LoginController extends GetxController with LoadingController {
     this._tokenRepository,
   );
 
-  Future<void> _login() async {
-    try {
-      final loginRes = await _userRepository.login(
-        username: email.value,
-        password: password.value,
-      );
+  Future<void> login() => () async {
+        try {
+          final loginRes = await _userRepository.login(
+            username: email.value,
+            password: password.value,
+          );
 
-      if (loginRes.code == 0) {
-        await _tokenRepository.saveToken(loginRes.accessToken);
+          if (loginRes.code == 0) {
+            await _tokenRepository.saveToken(loginRes.accessToken);
 
-        Get.toNamed(Routes.HOME);
-      } else {
-        Get.snackbar('Error', loginRes.message);
-      }
-    } on Exception catch (e) {
-      Get.snackbar('Error', 'Unknown error! Please try again.');
-    }
-  }
-
-  Future<void> login() => _login().loading(isLoading);
+            Get.toNamed(Routes.HOME);
+          } else {
+            Get.snackbar('Error', loginRes.message);
+          }
+        } on Exception catch (e) {
+          Get.snackbar('Error', 'Unknown error! Please try again.');
+        }
+      }()
+          .loading(isLoading);
 }
