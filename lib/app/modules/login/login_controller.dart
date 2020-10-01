@@ -1,10 +1,10 @@
-import 'package:flutter_get_x_architecture/common/controllers/base_controller.dart';
+import 'package:flutter_get_x_architecture/app/routes/app_pages.dart';
+import 'package:flutter_get_x_architecture/common/controllers/loading_controller.dart';
 import 'package:flutter_get_x_architecture/data/repositories/token_repository.dart';
 import 'package:flutter_get_x_architecture/data/repositories/user_repository.dart';
-import 'package:flutter_get_x_architecture/routes.dart';
 import 'package:get/get.dart';
 
-class LoginController extends BaseController {
+class LoginController extends GetxController with LoadingController {
   final UserRepository _userRepository;
 
   final TokenRepository _tokenRepository;
@@ -30,7 +30,7 @@ class LoginController extends BaseController {
       if (loginRes.code == 0) {
         await _tokenRepository.saveToken(loginRes.accessToken);
 
-        Get.toNamed(RouteConstant.HOME);
+        Get.toNamed(Routes.HOME);
       } else {
         Get.snackbar('Error', loginRes.message);
       }

@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_get_x_architecture/app.dart';
+import 'package:flutter_get_x_architecture/app/app.dart';
 import 'package:flutter_get_x_architecture/common/config/api.dart';
 import 'package:flutter_get_x_architecture/data/repositories/token_repository.dart';
 import 'package:flutter_get_x_architecture/data/repositories/user_repository.dart';
