@@ -36,6 +36,5 @@ class LoginController extends GetxController with LoadingController {
         } on Exception catch (e) {
           Get.snackbar('Error', 'Unknown error! Please try again.');
         }
-      }()
-          .loading(isLoading);
+      }.loading(isLoading);
 }
