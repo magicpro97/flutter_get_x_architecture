@@ -1,5 +1,6 @@
 import 'package:flutter_get_x_architecture/app/routes/app_pages.dart';
 import 'package:flutter_get_x_architecture/common/controllers/loading_controller.dart';
+import 'package:flutter_get_x_architecture/common/extensions/extensions.dart';
 import 'package:flutter_get_x_architecture/data/repositories/token_repository.dart';
 import 'package:flutter_get_x_architecture/data/repositories/user_repository.dart';
 import 'package:get/get.dart';
@@ -18,9 +19,7 @@ class LoginController extends GetxController with LoadingController {
     this._tokenRepository,
   );
 
-  void login() async {
-    loading();
-
+  Future<void> _login() async {
     try {
       final loginRes = await _userRepository.login(
         username: email.value,
@@ -37,7 +36,7 @@ class LoginController extends GetxController with LoadingController {
     } on Exception catch (e) {
       Get.snackbar('Error', 'Unknown error! Please try again.');
     }
-
-    loaded();
   }
+
+  Future<void> login() => _login().loading(isLoading);
 }
