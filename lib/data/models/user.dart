@@ -28,7 +28,6 @@ class User extends BaseModel {
     this.avatar,
   });
 
-  @override
   Map<String, dynamic> toJson() => _$UserToJson(this);
 
   @override

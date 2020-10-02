@@ -19,10 +19,4 @@ class ErrorResponse extends BaseResponse {
 
   @override
   List<Object> get props => [data];
-
-  @override
-  Map<String, dynamic> toJson() {
-    // TODO: implement toJson
-    throw UnimplementedError();
-  }
 }
